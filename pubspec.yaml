@@ -1,0 +1,22 @@
+name: lonca_mobile
+description: "Lonca — Demirci Dükkanı: Flutter mini katalog uygulaması"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.6.0
+
+# Eğitim kapsamı gereği ekstra paket kullanılmıyor (yalnızca material.dart)
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/data/
+    - assets/images/
