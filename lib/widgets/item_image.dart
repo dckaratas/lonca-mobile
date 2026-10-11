@@ -15,6 +15,7 @@ class ItemImage extends StatelessWidget {
       item.image,
       height: size,
       fit: BoxFit.contain,
+      filterQuality: FilterQuality.none, // piksel sanatı keskin kalsın
       errorBuilder: (_, __, ___) => Text(item.emoji, style: TextStyle(fontSize: size * 0.75)),
     );
   }

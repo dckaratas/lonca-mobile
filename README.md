@@ -17,6 +17,7 @@ Maceracılar silah, zırh, iksir, parşömen ve takıları inceler, detaylarına
 - Nadirliğe göre renklendirilmiş kartlar ve stat çubukları
 - **Heybe (sepet)**: ekleme/çıkarma, stok sınırı, toplam altın — `ChangeNotifier` ile basit state yönetimi
 - Veriler `assets/data/items.json` dosyasından okunur (**fromJson / toJson** model sınıfı)
+- **Image.asset** ile piksel sanatı eşya görselleri (`assets/images/`); görseli olmayan eşyalarda emoji gösterilir
 - Ekstra paket kullanılmamıştır (yalnızca `material.dart`)
 
 ## Kullanılan Flutter Sürümü
