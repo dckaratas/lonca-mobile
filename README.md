@@ -27,7 +27,7 @@ Flutter 3.47.7 (stable) • Dart 3.13.5
 ## Çalıştırma Adımları
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/dckaratas/lonca-mobile.git
 cd lonca-mobile
 flutter pub get
 flutter run
