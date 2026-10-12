@@ -5,9 +5,9 @@ Maceracılar silah, zırh, iksir, parşömen ve takıları inceler, detaylarına
 
 ## Ekran Görüntüleri
 
-| Ana Sayfa | Eşya Detayı | Heybe |
-|---|---|---|
-| ![Ana sayfa](screenshots/home.png) | ![Detay](screenshots/detail.png) | ![Heybe](screenshots/bag.png) |
+| Ana Sayfa | Eşya Listesi | Eşya Detayı | Heybe |
+|---|---|---|---|
+| ![Ana sayfa](screenshots/home.png) | ![Eşya listesi](screenshots/list.png) | ![Detay](screenshots/detail.png) | ![Heybe](screenshots/bag.png) |
 
 ## Özellikler
 
