@@ -49,59 +49,51 @@ class _HomePageState extends State<HomePage> {
           final types = items.map((e) => e.type).toSet().toList();
           final visible = _filter(items);
 
-          return CustomScrollView(
-            slivers: [
-              const SliverToBoxAdapter(child: _Banner()),
-              SliverToBoxAdapter(
-                child: Padding(
-                  padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
-                  child: TextField(
-                    decoration: const InputDecoration(
-                      hintText: 'Eşya ara…',
-                      prefixIcon: Icon(Icons.search),
-                    ),
-                    onChanged: (value) => setState(() => _query = value),
+          return Column(
+            children: [
+              const _Banner(),
+              Padding(
+                padding: const EdgeInsets.fromLTRB(16, 16, 16, 8),
+                child: TextField(
+                  decoration: const InputDecoration(
+                    hintText: 'Eşya ara…',
+                    prefixIcon: Icon(Icons.search),
                   ),
+                  onChanged: (value) => setState(() => _query = value),
                 ),
               ),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 48,
-                  child: ListView(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    children: [
-                      _typeChip('Tümü', null),
-                      for (final type in types) _typeChip(type, type),
-                    ],
-                  ),
+              SizedBox(
+                height: 48,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  children: [
+                    _typeChip('Tümü', null),
+                    for (final type in types) _typeChip(type, type),
+                  ],
                 ),
               ),
-              if (visible.isEmpty)
-                const SliverFillRemaining(
-                  hasScrollBody: false,
-                  child: Center(child: Text('Aradığın eşya bu dükkânda yok.')),
-                )
-              else
-                SliverPadding(
-                  padding: const EdgeInsets.all(16),
-                  sliver: SliverGrid.builder(
-                    itemCount: visible.length,
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                      mainAxisSpacing: 12,
-                      crossAxisSpacing: 12,
-                      childAspectRatio: 0.8,
-                    ),
-                    itemBuilder: (context, index) {
-                      final item = visible[index];
-                      return ItemCard(
-                        item: item,
-                        onTap: () => Navigator.pushNamed(context, AppRoutes.detail, arguments: item),
-                      );
-                    },
-                  ),
-                ),
+              Expanded(
+                child: visible.isEmpty
+                    ? const Center(child: Text('Aradığın eşya bu dükkânda yok.'))
+                    : GridView.builder(
+                        padding: const EdgeInsets.all(16),
+                        itemCount: visible.length,
+                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                          mainAxisSpacing: 12,
+                          crossAxisSpacing: 12,
+                          childAspectRatio: 0.8,
+                        ),
+                        itemBuilder: (context, index) {
+                          final item = visible[index];
+                          return ItemCard(
+                            item: item,
+                            onTap: () => Navigator.pushNamed(context, AppRoutes.detail, arguments: item),
+                          );
+                        },
+                      ),
+              ),
             ],
           );
         },
@@ -144,10 +136,7 @@ class _Banner extends StatelessWidget {
               children: [
                 Text('HOŞ GELDİN, MACERACI',
                     style: TextStyle(
-                        color: LoncaColors.bronze,
-                        fontSize: 16,
-                        letterSpacing: 1.8,
-                        fontWeight: FontWeight.w600)),
+                        color: LoncaColors.bronze, fontSize: 16, letterSpacing: 1.8, fontWeight: FontWeight.w600)),
                 SizedBox(height: 6),
                 Text('Bir sonraki görevin için donanımını seç.',
                     style: TextStyle(color: LoncaColors.ink, fontSize: 17, fontStyle: FontStyle.italic)),

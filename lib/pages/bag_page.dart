@@ -16,7 +16,20 @@ class BagPage extends StatelessWidget {
         builder: (context, _) {
           final items = bag.items;
           if (items.isEmpty) {
-            return const Center(child: Text('Heyben bomboş. Dükkâna bir göz at!'));
+            return Center(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Text('Heyben bomboş. Dükkâna bir göz at!'),
+                  const SizedBox(height: 16),
+                  OutlinedButton.icon(
+                    icon: const Icon(Icons.arrow_back),
+                    label: const Text('Dükkâna Dön'),
+                    onPressed: () => Navigator.pop(context),
+                  ),
+                ],
+              ),
+            );
           }
           return Column(
             children: [
